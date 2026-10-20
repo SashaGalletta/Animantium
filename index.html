@@ -4,245 +4,257 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animantium | The Study of Life</title>
-
-  <style>
-    :root {
-      --green: #315c49;
-      --cream: #f7f5ee;
-      --ink: #25372e;
-      --muted: #68776c;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.7;
-    }
-
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #dedfd5;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: var(--ink);
-      text-decoration: none;
-      margin-left: 22px;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px 85px;
-      background: var(--green);
-      color: var(--white);
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font: 0.8rem Arial, sans-serif;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      letter-spacing: 5px;
-      margin: 15px 0 0;
-      line-height: 1.15;
-    }
-
-    .subtitle {
-      font-style: italic;
-      font-size: 1.1rem;
-      margin: 15px 0 25px;
-      color: #dce8dc;
-    }
-
-    .hero p {
-      max-width: 570px;
-      margin: 0 auto 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 25px;
-      background: var(--cream);
-      color: var(--green);
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      border-radius: 3px;
-    }
-
-    section {
-      padding: 70px 10%;
-    }
-
-    .section-label {
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font: 0.8rem Arial, sans-serif;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      line-height: 1.25;
-      margin: 12px 0 20px;
-    }
-
-    .about {
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .explore {
-      background: #eaece2;
-    }
-
-    .topics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .topic {
-      background: var(--white);
-      padding: 25px;
-      border-radius: 5px;
-      border: 1px solid #e0e3d9;
-    }
-
-    .topic h3 {
-      color: var(--green);
-      margin-top: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      font: 0.85rem Arial, sans-serif;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
-      header {
-        align-items: flex-start;
-        gap: 15px;
-        flex-direction: column;
-      }
-
-      nav a {
-        margin: 0 14px 0 0;
-      }
-
-      section {
-        padding: 50px 7%;
-      }
-    }
-  </style>
+  <meta name="description" content="Animantium: clear, visual explanations for Cambridge IGCSE Biology 0610.">
+  <title>Animantium — The Study of Life</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <div class="logo">ANIMANTIUM</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#explore">Explore Biology</a>
-    </nav>
-  </header>
+  <div class="site-wrap">
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow">Animantium Vitae Studium</div>
-      <h1>The Study of Life</h1>
-      <p class="subtitle">Understand life. One concept at a time.</p>
-      <p>
-        A place to explore biology, connect ideas,
-        and discover the science behind the living world.
-      </p>
-      <a class="button" href="#explore">Explore the project</a>
-    </section>
+    <header class="topbar">
+      <a class="brand" href="index.html">ANIMANTIUM</a>
+      <nav class="topnav">
+        <a href="#about">About</a>
+        <a href="#index">Explore Biology</a>
+      </nav>
+    </header>
 
-    <section id="about">
-      <div class="about">
-        <div class="section-label">The creator</div>
-        <h2>A little about me</h2>
-        <p>
-          Hi! I'm [Your name], a student with a growing
-          interest in biology and the living world.
-        </p>
-        <p>
-          I created Animantium because I wanted a place
-          where biological concepts could be explained
-          clearly, from the foundations to more complex ideas.
-          I hope this project can make learning biology
-          more accessible, curious, and enjoyable.
-        </p>
-        <p>
-          This is a project I'm building while learning,
-          studying, and discovering new things myself.
-        </p>
-      </div>
-    </section>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Cambridge IGCSE Biology 0610</p>
+          <h1>The Study<br>of Life.</h1>
+          <p class="hero-copy">
+            Study the Cambridge IGCSE Biology 0610 from start to finish.
+          </p>
+          <p class="hero-note">Understand life, one concept at a time.</p>
+        </div>
 
-    <section class="explore" id="explore">
-      <div class="section-label">Discover</div>
-      <h2>Explore the world of biology</h2>
-      <p>
-        Start with the basics and gradually explore
-        the connections that make life possible.
-      </p>
+        <div class="illustration-placeholder">
+          <span>
+            YOUR ORIGINAL ILLUSTRATION GOES HERE.
+            Replace this space with one of your own drawings.
+          </span>
+        </div>
+      </section>
 
-      <div class="topics">
-        <article class="topic">
-          <h3>Cell Biology</h3>
-          <p>Discover cells, their structures, and how they work.</p>
-        </article>
+      <section class="section" id="about">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The person behind the project</p>
+            <h2>A little about me</h2>
+          </div>
+          <p class="section-intro">
+            A student-made resource to make Biology clearer,
+            more visual, and easier to learn.
+          </p>
+        </div>
 
-        <article class="topic">
-          <h3>Genetics</h3>
-          <p>Explore DNA, genes, inheritance, and variation.</p>
-        </article>
+        <div class="about-grid">
+          <article class="about-card">
+            <h3>Hi, I'm Narella Galletta.</h3>
+            <p>
+              I'm a student preparing for university. I created
+              Animantium to help other students understand Biology
+              more easily, one topic at a time.
+            </p>
+          </article>
 
-        <article class="topic">
-          <h3>Ecology</h3>
-          <p>Understand ecosystems and relationships between organisms.</p>
-        </article>
+          <article class="journey-card">
+            <h3>My journey</h3>
+            <p>
+              At the age of twelve, I moved to Spain, where I began
+              studying the IGCSE curriculum. Biology became my
+              favourite subject, inspiring me to create this website.
+              I hope Animantium will make learning Biology easier
+              for future students by explaining each topic clearly
+              and visually.
+            </p>
+          </article>
+        </div>
 
-        <article class="topic">
-          <h3>Human Biology</h3>
-          <p>Learn how the human body functions and stays alive.</p>
-        </article>
-      </div>
+        <div class="about-lower">
+          <article class="mini-card">
+            <h3>Explanations</h3>
+            <p>
+              I explain each topic in a simple but detailed way,
+              so everyone can understand it.
+            </p>
+          </article>
 
-      <p>
-        <em>More topics and learning resources coming soon.</em>
-      </p>
-    </section>
-  </main>
+          <article class="mini-card">
+            <h3>Visuals</h3>
+            <p>
+              I create my own illustrations to make Biology more
+              visual, engaging, and easier to understand.
+            </p>
+          </article>
 
-  <footer>
-    ANIMANTIUM · A student-built biology project
-  </footer>
+          <article class="mini-card">
+            <h3>Syllabus</h3>
+            <p>
+              I'll follow the Cambridge IGCSE Biology 0610 syllabus
+              to cover all the required topics.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Learning by exploring</h3>
+            <p>
+              Choose a topic below to start exploring the science
+              of life.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section index-section" id="index">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your learning starts here</p>
+            <h2>Explore Biology</h2>
+          </div>
+          <p class="section-intro">
+            Select any topic to open its own page. Each lesson will
+            grow as explanations and original illustrations are added.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <a class="topic-card" href="topics/characteristics-classification.html">
+            <span class="topic-number">01 / 21</span>
+            <span class="topic-name">Characteristics and classification of living organisms</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/organisation.html">
+            <span class="topic-number">02 / 21</span>
+            <span class="topic-name">Organisation of the organism</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/movement-into-and-out-of-cells.html">
+            <span class="topic-number">03 / 21</span>
+            <span class="topic-name">Movement into and out of cells</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/biological-molecules.html">
+            <span class="topic-number">04 / 21</span>
+            <span class="topic-name">Biological molecules</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/enzymes.html">
+            <span class="topic-number">05 / 21</span>
+            <span class="topic-name">Enzymes</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/plant-nutrition.html">
+            <span class="topic-number">06 / 21</span>
+            <span class="topic-name">Plant nutrition</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/human-nutrition.html">
+            <span class="topic-number">07 / 21</span>
+            <span class="topic-name">Human nutrition</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/transport-in-plants.html">
+            <span class="topic-number">08 / 21</span>
+            <span class="topic-name">Transport in plants</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/transport-in-animals.html">
+            <span class="topic-number">09 / 21</span>
+            <span class="topic-name">Transport in animals</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/diseases-and-immunity.html">
+            <span class="topic-number">10 / 21</span>
+            <span class="topic-name">Diseases and immunity</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/gas-exchange.html">
+            <span class="topic-number">11 / 21</span>
+            <span class="topic-name">Gas exchange in humans</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/respiration.html">
+            <span class="topic-number">12 / 21</span>
+            <span class="topic-name">Respiration</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/excretion.html">
+            <span class="topic-number">13 / 21</span>
+            <span class="topic-name">Excretion in humans</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/coordination-and-response.html">
+            <span class="topic-number">14 / 21</span>
+            <span class="topic-name">Coordination and response</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/drugs.html">
+            <span class="topic-number">15 / 21</span>
+            <span class="topic-name">Drugs</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/reproduction.html">
+            <span class="topic-number">16 / 21</span>
+            <span class="topic-name">Reproduction</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/inheritance.html">
+            <span class="topic-number">17 / 21</span>
+            <span class="topic-name">Inheritance</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/variation-and-selection.html">
+            <span class="topic-number">18 / 21</span>
+            <span class="topic-name">Variation and selection</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/organisms-and-environment.html">
+            <span class="topic-number">19 / 21</span>
+            <span class="topic-name">Organisms and their environment</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/human-influences.html">
+            <span class="topic-number">20 / 21</span>
+            <span class="topic-name">Human influences on ecosystems</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+
+          <a class="topic-card" href="topics/biotechnology-genetic-modification.html">
+            <span class="topic-number">21 / 21</span>
+            <span class="topic-name">Biotechnology and genetic modification</span>
+            <span class="topic-arrow">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>ANIMANTIUM · The Study of Life</span>
+      <span>Created by Narella Galletta</span>
+    </footer>
+  </div>
 </body>
 </html>
+
