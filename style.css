@@ -1,0 +1,396 @@
+
+:root {
+  --paper: #f7efcf;
+  --paper-light: #fffdf4;
+  --paper-card: #fff9e9;
+  --ink: #543526;
+  --ink-soft: #765b49;
+  --olive: #68724a;
+  --line: #dfd0a9;
+  --shadow: 0 12px 30px rgba(84, 53, 38, .08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.site-wrap {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  text-decoration: none;
+  font-size: 1.65rem;
+  letter-spacing: .22em;
+  font-weight: bold;
+}
+
+.topnav {
+  display: flex;
+  gap: 26px;
+  font-family: Arial, sans-serif;
+  font-size: .88rem;
+}
+
+.topnav a {
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 66px 0 74px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font: 700 .75rem Arial, sans-serif;
+  color: var(--olive);
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 5.8vw, 5.8rem);
+  letter-spacing: -.045em;
+  line-height: .98;
+  margin: 14px 0 24px;
+  font-weight: 500;
+}
+
+.hero-copy {
+  font-size: 1.16rem;
+  max-width: 540px;
+  color: var(--ink-soft);
+}
+
+.hero-note {
+  font-size: .92rem;
+  font-family: Arial, sans-serif;
+}
+
+.illustration-placeholder {
+  min-height: 330px;
+  border: 1px dashed #b8a47b;
+  border-radius: 48% 48% 42% 42%;
+  background: rgba(255, 253, 244, .55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 34px;
+  color: var(--ink-soft);
+}
+
+.illustration-placeholder span {
+  display: block;
+  max-width: 210px;
+  font: .86rem/1.6 Arial, sans-serif;
+}
+
+.section {
+  padding: 52px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-size: 2.35rem;
+  line-height: 1.1;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.section-intro {
+  max-width: 570px;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 28px;
+}
+
+.about-card,
+.journey-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.about-card h3,
+.journey-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.about-card p,
+.journey-card p {
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.about-lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.mini-card {
+  border-top: 2px solid var(--olive);
+  padding: 20px 4px 0;
+}
+
+.mini-card h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.mini-card p {
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+
+.index-section {
+  padding-bottom: 78px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 132px;
+  padding: 22px;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.topic-number {
+  color: var(--olive);
+  font: 700 .72rem Arial, sans-serif;
+  letter-spacing: .12em;
+}
+
+.topic-name {
+  font-size: 1.13rem;
+  line-height: 1.3;
+  margin-top: 18px;
+}
+
+.topic-arrow {
+  align-self: flex-end;
+  font: 1.25rem Arial, sans-serif;
+  color: var(--olive);
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 26px 0 36px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--ink-soft);
+  font: .82rem Arial, sans-serif;
+}
+
+/* Individual Biology topic pages */
+
+.topic-hero {
+  padding: 54px 0 36px;
+}
+
+.breadcrumb {
+  font: .85rem Arial, sans-serif;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+.topic-title {
+  max-width: 850px;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+}
+
+.topic-layout {
+  display: grid;
+  grid-template-columns: 1.4fr .6fr;
+  gap: 34px;
+  padding-bottom: 70px;
+}
+
+.lesson-panel {
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  padding: 34px;
+}
+
+.lesson-panel h2 {
+  font-size: 1.7rem;
+}
+
+.lesson-panel p {
+  color: var(--ink-soft);
+}
+
+.lesson-placeholder {
+  border-left: 3px solid var(--olive);
+  background: #f1e7c4;
+  padding: 20px 22px;
+  margin: 26px 0;
+  font-family: Arial, sans-serif;
+  font-size: .9rem;
+}
+
+.drawing-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawing-panel .illustration-placeholder {
+  min-height: 260px;
+  border-radius: 4px;
+}
+
+.drawing-caption {
+  font: .8rem Arial, sans-serif;
+  color: var(--ink-soft);
+}
+
+.topic-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding: 22px 0 44px;
+  font-family: Arial, sans-serif;
+  font-size: .9rem;
+}
+
+.topic-nav a {
+  text-decoration: none;
+}
+
+/* Adapt the layout to different screen sizes */
+
+@media (max-width: 850px) {
+  .site-wrap {
+    width: calc(100% - 36px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 48px 0;
+  }
+
+  .hero .illustration-placeholder {
+    min-height: 210px;
+  }
+
+  .about-grid,
+  .topic-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading {
+    display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 1.35rem;
+  }
+
+  .topnav {
+    flex-wrap: wrap;
+  }
+
+  .topic-grid,
+  .about-lower {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card {
+    min-height: 100px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
