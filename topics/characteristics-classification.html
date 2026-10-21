@@ -1,18 +1,673 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Characteristics and Classification | Animantium</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 1 | Animantium</title>
+  <style>
+    :root {
+      --paper: #fff3bf;
+      --ink: #443027;
+      --muted-ink: #6b5141;
+      --peach: #edb3a6;
+      --card: rgba(255, 250, 224, .72);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem clamp(1rem, 5vw, 4rem);
+      border-bottom: 1px solid rgba(68, 48, 39, .22);
+    }
+
+    .brand {
+      font-size: .9rem;
+      font-weight: bold;
+      letter-spacing: .18em;
+      text-decoration: none;
+    }
+
+    .back-link {
+      font-family: Arial, sans-serif;
+      font-size: .85rem;
+      text-underline-offset: 4px;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 4rem) 0 5rem;
+    }
+
+    .page-heading {
+      max-width: 850px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin-bottom: .5rem;
+      color: var(--muted-ink);
+      font: 700 .76rem/1.4 Arial, sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: .75rem;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+
+    .page-heading p {
+      max-width: 660px;
+      margin: 0 auto;
+      color: var(--muted-ink);
+    }
+
+    .topic-section {
+      margin-bottom: 2.5rem;
+      padding: clamp(1rem, 2.5vw, 2rem);
+      border: 1px solid rgba(68, 48, 39, .2);
+      border-radius: 18px;
+      background: rgba(255, 250, 224, .34);
+      box-shadow: 0 8px 24px rgba(68, 48, 39, .045);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid rgba(68, 48, 39, .28);
+    }
+
+    .section-number {
+      flex: 0 0 auto;
+      color: #916b4e;
+      font: 700 .9rem/1 Arial, sans-serif;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.25rem, 2.4vw, 2rem);
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin-bottom: .65rem;
+      font-size: 1rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .025em;
+    }
+
+    p, li { font-size: .97rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      margin: .4rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    li + li { margin-top: .35rem; }
+
+    .grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .content-card {
+      min-width: 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: var(--card);
+    }
+
+    .definition {
+      padding: 1rem 1.1rem;
+      background: var(--peach);
+      border-radius: 10px;
+    }
+
+    .definition p { margin: 0; }
+
+    .image-slot {
+      display: block;
+      width: 100%;
+      min-height: 145px;
+      aspect-ratio: 4 / 3;
+      background: #050505;
+      border: 1px solid rgba(0, 0, 0, .25);
+      border-radius: 2px;
+    }
+
+    .image-slot.wide { aspect-ratio: 16 / 9; }
+    .image-slot.tall { aspect-ratio: 3 / 4; }
+    .image-slot.small { aspect-ratio: 5 / 3; min-height: 110px; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .taxonomy {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: .5rem;
+    }
+
+    .taxonomy div {
+      padding: .65rem .3rem;
+      background: var(--peach);
+      border-radius: 7px;
+      text-align: center;
+      font-size: .86rem;
+    }
+
+    .kingdom-list {
+      display: grid;
+      gap: .45rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .kingdom-list li {
+      margin: 0;
+      padding: .65rem .8rem;
+      background: rgba(237, 179, 166, .42);
+      border-radius: 7px;
+    }
+
+    .animal-card {
+      display: grid;
+      gap: .8rem;
+    }
+
+    .animal-card h3 { text-align: center; }
+
+    .footer-note {
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--muted-ink);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        width: min(100% - 1rem, 680px);
+        padding-top: 1.5rem;
+      }
+
+      .site-nav { padding: .9rem 1rem; }
+
+      .topic-section {
+        padding: 1rem;
+        border-radius: 13px;
+      }
+
+      .two-col, .three-col, .split {
+        grid-template-columns: 1fr;
+      }
+
+      .taxonomy {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .image-slot { min-height: 190px; }
+
+      .section-title { align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="../index.html">ANIMANTIUM</a>
+    <a class="back-link" href="../index.html">← Back to index</a>
+  </nav>
 
-  <h1>Characteristics and Classification of Living Organisms</h1>
+  <main>
+    <header class="page-heading">
+      <p class="eyebrow">Cambridge IGCSE Biology 0610</p>
+      <h1>Characteristics and Classification of Living Organisms</h1>
+      <p>Topic 1</p>
+    </header>
 
-  <p>See you soon! 🌿</p>
+    <section class="topic-section" id="1-1">
+      <div class="section-title">
+        <span class="section-number">1.1</span>
+        <h2>Biology is the study of life</h2>
+      </div>
 
-  <a href="../index.html">← Back to Animantium</a>
+      <div class="split">
+        <div class="stack">
+          <div class="content-card">
+            <h3>Characteristics of living organisms</h3>
+            <p>Biologists use a list of characteristics that living organisms show</p>
+            <ul>
+              <li>Respiration</li>
+              <li>Sensitivity (irritability)</li>
+              <li>Nutrition</li>
+              <li>Growth and development</li>
+              <li>Excretion</li>
+              <li>Reproduction</li>
+              <li>Movement</li>
+            </ul>
+            <div class="definition" style="margin-top:1rem">
+              <p>“MRS GREN” is used to remember these.</p>
+            </div>
+          </div>
 
+          <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+
+          <div class="content-card">
+            <h3>How the characteristics of life depend on each other</h3>
+            <p>Each of the characteristics of life is linked to the others.</p>
+            <p>Example: Organisms grow when they have access to a source of nutrients.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Growth and development</h3>
+            <p>Growth is a permanent increase in size and dry mass. Development involves changes in an organism's form.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Excretion</h3>
+            <p>The removal from organisms of toxic materials, the waste products of metabolism, and substances in excess of requirements.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Reproduction</h3>
+            <p>The processes that produce new individuals of the same kind of organism. An organism may split into two, or reproduction may involve more complex processes, including fertilisation.</p>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="content-card">
+            <h3>Complex organisation</h3>
+            <p>Even the simplest living cell contains many different complex substances arranged in very specific structures.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Variations: Offspring</h3>
+            <p>Offspring are different from one another and from their parents.</p>
+          </div>
+
+          <div class="definition">
+            <p>Ringer’s solution is a solution of ions and molecules that physiologists use to keep living tissues alive outside the body.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Depending on energy</h3>
+            <p>The ability of an organism to carry out its life processes depends on the supply of energy.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Nutrition</h3>
+            <p>The taking in of materials for energy, growth and development.</p>
+            <p>Example: Plants → light, carbon dioxide, water and ions to make their food.</p>
+            <p>Example: Animals → organic compounds, ions and water.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Respiration</h3>
+            <p>The chemical reactions that break down nutrient molecules in living cells to release energy for metabolism.</p>
+            <p>Organisms have gas exchange systems that supply their cells with oxygen from their environment.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Sensitivity (irritability)</h3>
+            <p>The ability to detect or sense changes in the internal or external environment and to make appropriate responses.</p>
+            <p>The changes are called stimuli.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="topic-section" id="1-2">
+      <div class="section-title">
+        <span class="section-number">1.2</span>
+        <h2>The variety of life</h2>
+      </div>
+
+      <div class="split">
+        <div class="stack">
+          <div class="content-card">
+            <h3>The need to classify living things</h3>
+            <p>Variation and natural selection lead to evolution. Evolution and the isolation of populations can lead to the development of new species. Every species has different characteristics, and some of these characteristics can be inherited by successive generations of the same species.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>It is important in:</h3>
+            <p><strong>Conservation:</strong> Scientists need to be able to identify different organisms, and they need to control which organisms are used in breeding programmes.</p>
+            <p><strong>Understanding evolutionary relationships:</strong> Classification helps scientists understand the relationships between organisms.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Five kingdoms</h3>
+            <ul class="kingdom-list">
+              <li>Prokaryotes</li>
+              <li>Protoctists</li>
+              <li>Plants</li>
+              <li>Fungi</li>
+              <li>Animals</li>
+            </ul>
+          </div>
+
+          <div class="content-card">
+            <h3>Hierarchy of classification</h3>
+            <div class="taxonomy">
+              <div>Kingdom</div>
+              <div>Phylum</div>
+              <div>Class</div>
+              <div>Order</div>
+              <div>Family</div>
+              <div>Genus</div>
+              <div>Species</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="definition">
+            <p><strong>Classification:</strong> The science of putting living organisms into categories.</p>
+          </div>
+
+          <div class="definition">
+            <p><strong>Taxonomists:</strong> People who study classification.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Classification keys</h3>
+            <p>Organisms can be identified by asking questions. These questions form a classification key.</p>
+            <p>Classification keys are based on morphology and anatomy.</p>
+          </div>
+
+          <div class="image-slot wide" role="img" aria-label="Reserved illustration space"></div>
+
+          <div class="content-card">
+            <p><strong>Protein structure:</strong> Organisms that are closely related have very similar amino acid sequences in proteins such as haemoglobin.</p>
+            <p><strong>DNA structure:</strong> Closely related organisms have very similar base sequences in their DNA because there has been less evolutionary time for mutations to accumulate.</p>
+          </div>
+
+          <div class="content-card">
+            <p>New species may be classified based on characteristics such as protein structure, chromosome number or genes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-3">
+      <div class="section-title">
+        <span class="section-number">1.3</span>
+        <h2>Fungi</h2>
+      </div>
+
+      <div class="split">
+        <div class="stack">
+          <div class="content-card">
+            <h3>Fungal cells have a common structure</h3>
+            <p>Fungi are a very large group of organisms. They range in size from single-celled yeasts to enormous fungi.</p>
+            <p>Fungal cells have a cell wall made of a mixture of substances, including chitin. The cytoplasm contains many organelles, including nuclei, ribosomes and mitochondria. Fungi produce digestive enzymes that break down food outside their bodies.</p>
+            <p>They have saprotrophic nutrition: they feed on dead or decaying organic matter.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Requirements of fungi</h3>
+            <ul>
+              <li>A moist environment to absorb the soluble products of digestion from their food source.</li>
+              <li>A warm environment so enzymes can work effectively.</li>
+              <li>A nutrient source to provide the raw materials and energy required for growth.</li>
+              <li>They do not require light because they do not rely on photosynthesis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="content-card">
+            <h3>Reproduction in fungi</h3>
+            <p>Single-celled yeasts usually reproduce asexually by budding, while other fungi reproduce by producing spores.</p>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <p>The mycelium is made up of branching hyphae.</p>
+            <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <h3>The importance of fungi</h3>
+            <ul>
+              <li>They are decomposers and play a vital role in nutrient cycles.</li>
+              <li>Fungi may be agents of disease, e.g. athlete’s foot.</li>
+              <li>They may be a source of food.</li>
+              <li>They are used in biotechnology.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-4">
+      <div class="section-title">
+        <span class="section-number">1.4</span>
+        <h2>Plants: The plant kingdom</h2>
+      </div>
+
+      <div class="content-card">
+        <h3>Plants are autotrophs</h3>
+        <p>Plants manufacture food molecules from simple, inorganic substances by photosynthesis, using light.</p>
+        <p>Plants contain chlorophyll, a light-absorbing pigment, inside cells that have a cellulose cell wall.</p>
+        <p>The plant kingdom may be divided into three main groups.</p>
+      </div>
+
+      <div class="grid three-col" style="margin-top:1.1rem">
+        <div class="content-card">
+          <h3>Mosses</h3>
+          <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          <p>They cannot grow far away from water.</p>
+        </div>
+
+        <div class="content-card">
+          <h3>Ferns</h3>
+          <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          <p>They have roots, stems, complex leaves and vascular tissues, which make them better adapted to life on land. They produce spores for wide dispersal.</p>
+          <p>They do not have very thick cuticles and often grow in shady, humid areas. The male gametes of ferns must swim through a film of moisture to reach the female gametes for fertilisation.</p>
+        </div>
+
+        <div class="content-card">
+          <h3>Angiosperms</h3>
+          <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          <p>Angiosperms are flowering plants. More than 80% of all plant species are angiosperms.</p>
+          <p>There are two groups of angiosperms:</p>
+          <ul>
+            <li>A single cotyledon in the seed: monocotyledons.</li>
+            <li>Two cotyledons in the seed: dicotyledons.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-5">
+      <div class="section-title">
+        <span class="section-number">1.5</span>
+        <h2>Invertebrate animals</h2>
+      </div>
+
+      <div class="split">
+        <div class="stack">
+          <div class="content-card">
+            <p>Animals with a backbone are called vertebrates.</p>
+            <p>Animals without a backbone are called invertebrates.</p>
+            <div class="image-slot wide" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <h3>Arthropods</h3>
+            <p>Arthropods: The most numerous group of animals.</p>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="content-card">
+            <p>Insects undergo metamorphosis, allowing different stages of their life cycle to use the resources of their habitats.</p>
+          </div>
+
+          <div class="content-card">
+            <p>Apart from insects, the arthropod phylum also includes arachnids, crustaceans and myriapods.</p>
+          </div>
+
+          <div class="grid two-col">
+            <div class="content-card animal-card">
+              <h3>Crustacea</h3>
+              <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+            </div>
+            <div class="content-card animal-card">
+              <h3>Myriapods</h3>
+              <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+            </div>
+            <div class="content-card animal-card">
+              <h3>Insects</h3>
+              <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+            </div>
+            <div class="content-card animal-card">
+              <h3>Arachnids</h3>
+              <div class="image-slot small" role="img" aria-label="Reserved illustration space"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-6">
+      <div class="section-title">
+        <span class="section-number">1.6</span>
+        <h2>Vertebrate animals</h2>
+      </div>
+
+      <div class="split">
+        <div class="stack">
+          <div class="content-card">
+            <p>The backbone is made up of separate bones called vertebrae.</p>
+            <p>There are five classes of vertebrates.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Fish</h3>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <h3>Amphibians</h3>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <h3>Reptiles</h3>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="content-card">
+            <h3>Birds</h3>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+          </div>
+
+          <div class="content-card">
+            <h3>Mammals</h3>
+            <div class="image-slot" role="img" aria-label="Reserved illustration space"></div>
+            <p>Human adaptations have allowed the advanced development of the brain. The human brain is extremely sensitive to changes in temperature.</p>
+            <p>Another feature that makes humans distinctive among mammals is an upright posture, freeing the hands for complex movements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-7">
+      <div class="section-title">
+        <span class="section-number">1.7</span>
+        <h2>Protoctists and prokaryotes: Often single celled</h2>
+      </div>
+
+      <div class="split">
+        <div class="content-card">
+          <h3>Protoctists</h3>
+          <p>Protoctists do not fit into the other main kingdoms. All protoctists have cells with nuclei, and some may have chloroplasts. Many are unicellular, while some are multicellular.</p>
+          <p>Some feed like animals, others can photosynthesise, and some do both. Algae are classified as protoctists in this classification system.</p>
+          <p>A unicellular organism with a nucleus is not a prokaryote. It may be a protoctist, but having a nucleus alone does not mean that it must be one.</p>
+          <div class="image-slot wide" role="img" aria-label="Reserved illustration space"></div>
+        </div>
+
+        <div class="content-card">
+          <h3>Bacterial way of life</h3>
+          <p>Bacteria are examples of prokaryotes. They are single-celled organisms that do not have a true nucleus.</p>
+          <p>They do not have membrane-bound organelles, but they have ribosomes and can carry out life processes without a nucleus.</p>
+          <p>They may be parasites, feeding on living organisms, or saprotrophs, feeding on dead or decaying organic matter.</p>
+          <p>Bacteria are so small that they can only be seen using a microscope with sufficient magnification.</p>
+          <div class="image-slot wide" role="img" aria-label="Reserved illustration space"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="1-8">
+      <div class="section-title">
+        <span class="section-number">1.8</span>
+        <h2>Viruses</h2>
+      </div>
+
+      <div class="split">
+        <div class="content-card">
+          <p>Viruses do not show all the typical characteristics of living things. They can only reproduce inside the cells of another living organism.</p>
+        </div>
+
+        <div class="content-card">
+          <p>Some viruses cause disease. They may infect humans, domestic animals or plants.</p>
+          <div class="image-slot wide" role="img" aria-label="Reserved illustration space"></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      <a href="../index.html">← Return to Animantium</a>
+    </p>
+  </main>
 </body>
 </html>
